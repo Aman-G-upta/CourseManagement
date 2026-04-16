@@ -1,4 +1,4 @@
-const API = "http://localhost:8080/api/courses";
+const API = "https://your-app.up.railway.app/api/courses";
 
 function addCourse(){
 
