@@ -1,0 +1,127 @@
+body{
+background:linear-gradient(120deg,#eef2ff,#f8fafc);
+font-family:'Poppins',sans-serif;
+margin:0;
+}
+
+/* NAV */
+.modern-nav{
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(14px);
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+border-bottom:1px solid rgba(255,255,255,0.4);
+}
+
+.navbar-brand{
+font-weight:700;
+font-size:22px;
+color:#4f46e5 !important;
+}
+
+.nav-menu{
+display:flex;
+align-items:center;
+gap:25px;
+}
+
+.nav-link{
+font-weight:500;
+color:#111;
+text-decoration:none;
+transition:0.3s;
+}
+
+.nav-link:hover{
+color:#4f46e5;
+}
+
+/* HERO */
+.hero{
+height:80vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#6366f1,#8b5cf6);
+color:white;
+border-radius:0 0 80px 80px;
+}
+
+/* BUTTON */
+.modern-btn{
+background:linear-gradient(135deg,#4f46e5,#06b6d4);
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:12px;
+margin:10px;
+transition:0.4s;
+}
+
+.modern-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* FORM CENTER PERFECT */
+.form-section{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:70vh;
+margin-top:30px;
+}
+
+.form-card{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,0.1);
+width:500px;
+}
+
+.modern-input{
+margin-top:15px;
+border-radius:12px;
+padding:12px;
+}
+
+/* COURSE CARD */
+.glass{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 15px 30px rgba(0,0,0,0.08);
+transition:0.4s;
+}
+
+.glass:hover{
+transform:translateY(-10px) scale(1.02);
+}
+
+.glass img{
+height:200px;
+object-fit:cover;
+width:100%;
+}
+
+.section-title{
+font-weight:700;
+margin-bottom:30px;
+}
+
+.stats-section{
+margin-top:-50px;
+margin-bottom:30px;
+}
+
+.stat-card{
+background:rgba(255,255,255,0.9);
+padding:30px;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.stat-card:hover{
+transform:translateY(-8px);
+}
