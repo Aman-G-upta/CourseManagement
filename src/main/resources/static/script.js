@@ -1,5 +1,4 @@
-const API = "https://your-app.up.railway.app/api/courses";
-
+const API = "/api/courses";
 function addCourse(){
 
 const course = {
