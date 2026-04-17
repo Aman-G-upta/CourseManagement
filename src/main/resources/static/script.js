@@ -68,7 +68,10 @@ cards+=`
 <button class="btn btn-danger btn-sm"
 onclick="deleteCourse(${c.id})">Delete</button>
 
-onclick="goToEdit(${c.id}, \`${c.title}\`, \`${c.instructor}\`, ${c.fee}, \`${c.duration}\`, \`${c.image}\`)"
+<button class="btn btn-primary btn-sm me-2"
+onclick="goToEdit(${c.id}, \`${c.title}\`, \`${c.instructor}\`, ${c.fee}, \`${c.duration}\`, \`${c.image}\`)">
+Edit
+</button>
 
 </div>
 </div>
