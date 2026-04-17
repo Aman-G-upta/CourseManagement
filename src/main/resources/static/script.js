@@ -14,15 +14,19 @@ alert("Fill all fields correctly");
 return;
 }
 
-fetch(API,{
-method:"POST",
+const method = window.editId ? "PUT" : "POST";
+const url = window.editId ? API + "/" + window.editId : API;
+
+fetch(url,{
+method: method,
 headers:{ "Content-Type":"application/json"},
 body: JSON.stringify(course)
 })
 .then(res => {
 if(res.ok){
-alert("Course Added");
-location.reload();
+alert(window.editId ? "Course Updated" : "Course Added");
+window.editId = null;
+location.href="courses.html";
 }else{
 alert("Error saving course");
 }
@@ -30,11 +34,15 @@ alert("Error saving course");
 }
 
 function loadCourses(){
-
 fetch(API)
 .then(res=>res.json())
 .then(data=>{
+displayCourses(data);
+});
+}
 
+
+function displayCourses(data){
 let cards="";
 
 data.forEach(c=>{
@@ -58,6 +66,11 @@ cards+=`
 <button class="btn btn-danger btn-sm"
 onclick="deleteCourse(${c.id})">Delete</button>
 
+<button class="btn btn-primary btn-sm"
+onclick="editCourse(${c.id}, '${c.title}', '${c.instructor}', ${c.fee}, '${c.duration}', '${c.image}')">
+Edit
+</button>
+
 </div>
 </div>
 </div>
@@ -65,9 +78,9 @@ onclick="deleteCourse(${c.id})">Delete</button>
 });
 
 document.getElementById("data").innerHTML = cards;
-
-});
 }
+
+
 
 function deleteCourse(id){
 fetch(API+"/"+id,{method:"DELETE"})
@@ -79,5 +92,33 @@ fetch(API)
 .then(res=>res.json())
 .then(data=>{
 document.getElementById("totalCourses").innerText = data.length;
+});
+}
+
+function editCourse(id, title, instructor, fee, duration, image){
+    document.getElementById("title").value = title;
+    document.getElementById("instructor").value = instructor;
+    document.getElementById("fee").value = fee;
+    document.getElementById("duration").value = duration;
+    document.getElementById("image").value = image;
+
+    // store id globally
+    window.editId = id;
+}
+
+
+function searchCourse(){
+let input = document.getElementById("search").value.toLowerCase();
+
+fetch(API)
+.then(res=>res.json())
+.then(data=>{
+
+let filtered = data.filter(c =>
+c.title.toLowerCase().includes(input) ||
+c.instructor.toLowerCase().includes(input)
+);
+
+displayCourses(filtered);
 });
 }
