@@ -14,7 +14,7 @@
         <span class="navbar-brand">📘 CourseFlow</span>
 
         <div class="nav-menu">
-            <a href="../../../../course-ui/index.html" class="nav-link">Home</a>
+            <a href="index.html" class="nav-link">Home</a>
             <a href="add-course.html" class="nav-link">Add Course</a>
             <a href="courses.html" class="nav-link">Courses</a>
         </div>
@@ -23,8 +23,8 @@
 
 <div class="container mt-4">
     <div class="search-box shadow-sm">
-        <input type="text" id="searchInput" placeholder="🔍 Search courses..."
-               onkeyup="searchCourses()" />
+        <input type="text" id="searchInput" placeholder="Search courses..."
+               onkeyup="searchCourse()" />
     </div>
 </div>
 
@@ -35,24 +35,6 @@
 
 <script src="script.js"></script>
 <script>loadCourses();</script>
-<script>
-    window.onload = function(){
 
-    let data = localStorage.getItem("editCourse");
-
-    if(data){
-    let c = JSON.parse(data);
-
-    document.getElementById("title").value = c.title;
-    document.getElementById("instructor").value = c.instructor;
-    document.getElementById("fee").value = c.fee;
-    document.getElementById("duration").value = c.duration;
-    document.getElementById("image").value = c.image;
-
-    // store id globally
-    window.editId = c.id;
-    }
-    }
-</script>
 </body>
 </html>

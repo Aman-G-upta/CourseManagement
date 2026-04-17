@@ -119,7 +119,7 @@ function editCourse(id, title, instructor, fee, duration, image){
 
 
 function searchCourse(){
-let input = document.getElementById("search").value.toLowerCase();
+let input = document.getElementById("searchInput").value.toLowerCase();
 
 fetch(API)
 .then(res=>res.json())
