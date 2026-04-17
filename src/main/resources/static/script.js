@@ -67,7 +67,7 @@ cards+=`
 onclick="deleteCourse(${c.id})">Delete</button>
 
 <button class="btn btn-primary btn-sm"
-onclick="editCourse(${c.id}, '${c.title}', '${c.instructor}', ${c.fee}, '${c.duration}', '${c.image}')">
+onclick="editCourse(${c.id}, \`${c.title}\`, \`${c.instructor}\`, ${c.fee}, \`${c.duration}\`, \`${c.image}\`)">
 Edit
 </button>
 
