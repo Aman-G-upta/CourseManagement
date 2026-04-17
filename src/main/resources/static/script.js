@@ -30,6 +30,8 @@ location.href="courses.html";
 }else{
 alert("Error saving course");
 }
+
+localStorage.removeItem("editCourse");
 });
 }
 
@@ -66,10 +68,7 @@ cards+=`
 <button class="btn btn-danger btn-sm"
 onclick="deleteCourse(${c.id})">Delete</button>
 
-<button class="btn btn-primary btn-sm"
-onclick="editCourse(${c.id}, \`${c.title}\`, \`${c.instructor}\`, ${c.fee}, \`${c.duration}\`, \`${c.image}\`)">
-Edit
-</button>
+onclick="goToEdit(${c.id}, \`${c.title}\`, \`${c.instructor}\`, ${c.fee}, \`${c.duration}\`, \`${c.image}\`)"
 
 </div>
 </div>
@@ -80,7 +79,16 @@ Edit
 document.getElementById("data").innerHTML = cards;
 }
 
+function goToEdit(id, title, instructor, fee, duration, image){
 
+const course = { id, title, instructor, fee, duration, image };
+
+// store in browser
+localStorage.setItem("editCourse", JSON.stringify(course));
+
+// go to form page
+window.location.href = "add-course.html";
+}
 
 function deleteCourse(id){
 fetch(API+"/"+id,{method:"DELETE"})

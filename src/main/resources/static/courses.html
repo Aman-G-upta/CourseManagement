@@ -30,6 +30,24 @@
 
 <script src="script.js"></script>
 <script>loadCourses();</script>
+<script>
+    window.onload = function(){
 
+    let data = localStorage.getItem("editCourse");
+
+    if(data){
+    let c = JSON.parse(data);
+
+    document.getElementById("title").value = c.title;
+    document.getElementById("instructor").value = c.instructor;
+    document.getElementById("fee").value = c.fee;
+    document.getElementById("duration").value = c.duration;
+    document.getElementById("image").value = c.image;
+
+    // store id globally
+    window.editId = c.id;
+    }
+    }
+</script>
 </body>
 </html>
